@@ -15,7 +15,7 @@ export default function APVHero({ meta }) {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-30 lg:left-72 xl:left-80">
+    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 lg:left-72 xl:left-80">
       {/* Banner image */}
       <div
         className="relative w-full h-48 md:h-56 overflow-hidden"
@@ -24,12 +24,12 @@ export default function APVHero({ meta }) {
         <img
           src="https://media.base44.com/images/public/69da87110207331e6fa9d00a/8c2f87bac_EF7CD34B-CB7F-442C-B06A-2C38BF86F158.png"
           alt="Kroonstad Roleplay"
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center brightness-110"
         />
         {/* Bottom fade to blend into page background */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
         {/* Side darken for depth */}
-        <div className="absolute inset-0 bg-gradient-to-r from-background/30 via-transparent to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/15 via-transparent to-background/15" />
       </div>
 
       {/* APV title below image */}
