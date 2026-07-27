@@ -4,7 +4,7 @@ import { Check, Copy } from "lucide-react";
 import SanctionBadge from "./SanctionBadge";
 
 export default function APVArticle({ article }) {
-  const [copied, setCopied] = useState(false);
+  const [copyStatus, setCopyStatus] = useState("idle");
 
   const copyArticleLink = async () => {
     const articleUrl = new URL(
@@ -12,9 +12,28 @@ export default function APVArticle({ article }) {
       window.location.href,
     ).toString();
 
-    await navigator.clipboard.writeText(articleUrl);
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 2000);
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API is niet beschikbaar");
+      }
+
+      await navigator.clipboard.writeText(articleUrl);
+      setCopyStatus("copied");
+    } catch {
+      const textArea = document.createElement("textarea");
+      textArea.value = articleUrl;
+      textArea.setAttribute("readonly", "");
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+
+      const copiedWithFallback = document.execCommand("copy");
+      textArea.remove();
+      setCopyStatus(copiedWithFallback ? "copied" : "error");
+    }
+
+    window.setTimeout(() => setCopyStatus("idle"), 2500);
   };
 
   return (
@@ -44,16 +63,21 @@ export default function APVArticle({ article }) {
                 type="button"
                 onClick={copyArticleLink}
                 aria-label={`Kopieer link naar ${article.title}`}
-                title={copied ? "Gekopieerd" : "Kopieer link naar dit artikel"}
-                className="mt-0.5 flex flex-shrink-0 cursor-pointer items-center gap-1.5 rounded-md p-1.5 text-muted-foreground/50 transition hover:bg-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                title="Kopieer link naar dit artikel"
+                className="flex min-h-9 flex-shrink-0 cursor-pointer items-center gap-1.5 rounded-lg border border-border/60 bg-secondary/50 px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/30 hover:bg-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
               >
-                {copied ? (
+                {copyStatus === "copied" ? (
                   <>
                     <Check aria-hidden="true" className="h-4 w-4 text-emerald-400" />
                     <span className="text-xs text-emerald-400">Gekopieerd</span>
                   </>
+                ) : copyStatus === "error" ? (
+                  <span className="text-xs text-red-400">Kopiëren mislukt</span>
                 ) : (
-                  <Copy aria-hidden="true" className="h-4 w-4" />
+                  <>
+                    <Copy aria-hidden="true" className="h-4 w-4" />
+                    <span>Kopieer link</span>
+                  </>
                 )}
               </button>
             </div>
