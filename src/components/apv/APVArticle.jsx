@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "lucide-react";
 import SanctionBadge from "./SanctionBadge";
 
 export default function APVArticle({ article }) {
@@ -9,7 +10,7 @@ export default function APVArticle({ article }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.4 }}
-      className="group"
+      className="group scroll-mt-6"
     >
       <div className="relative p-6 md:p-8 rounded-2xl bg-card/50 border border-border/50 hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-primary/5">
         {/* Article number accent */}
@@ -21,9 +22,19 @@ export default function APVArticle({ article }) {
           {/* Title */}
           <div className="flex items-start gap-3">
             <div className="flex-shrink-0 w-1 h-8 rounded-full bg-gradient-to-b from-primary to-primary/30 mt-0.5" />
-            <h3 className="text-lg md:text-xl font-bold text-foreground tracking-tight leading-tight">
-              {article.title}
-            </h3>
+            <div className="flex min-w-0 flex-1 items-start gap-2">
+              <h3 className="text-lg md:text-xl font-bold text-foreground tracking-tight leading-tight">
+                {article.title}
+              </h3>
+              <a
+                href={`#article-${article.id}`}
+                aria-label={`Deel link naar ${article.title}`}
+                title="Link naar dit artikel"
+                className="mt-0.5 flex-shrink-0 rounded-md p-1.5 text-muted-foreground/30 opacity-70 transition hover:bg-secondary hover:text-primary focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/30 md:opacity-0 md:group-hover:opacity-100"
+              >
+                <Link aria-hidden="true" className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           {/* Content */}

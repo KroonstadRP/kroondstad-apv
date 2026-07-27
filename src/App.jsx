@@ -28,7 +28,27 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const articleId = window.location.hash.replace("#article-", "");
+    if (!articleId) return;
+
+    const scrollToLinkedArticle = () => {
+      document
+        .getElementById(`article-${articleId}`)
+        ?.scrollIntoView({ block: "start" });
+    };
+
+    const frame = window.requestAnimationFrame(scrollToLinkedArticle);
+    const settledLayoutTimer = window.setTimeout(scrollToLinkedArticle, 500);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(settledLayoutTimer);
+    };
+  }, []);
+
   const scrollToArticle = (articleId) => {
+    window.history.pushState(null, "", `#article-${articleId}`);
     document
       .getElementById(`article-${articleId}`)
       ?.scrollIntoView({ behavior: "smooth", block: "start" });
