@@ -41,7 +41,7 @@ export default function APVArticle({ article }) {
           <div className="pl-4 space-y-3">
             {article.content.split('\n').map((paragraph, i) => (
               paragraph.trim() && (
-                <p key={i} className="text-sm md:text-[15px] leading-relaxed text-muted-foreground/80">
+                <p key={i} className="text-[15px] md:text-base leading-7 text-muted-foreground">
                   {paragraph.startsWith('•') ? paragraph : paragraph}
                 </p>
               )
@@ -49,18 +49,18 @@ export default function APVArticle({ article }) {
 
             {/* List intro */}
             {article.listIntro && (
-              <p className="text-sm md:text-[15px] text-muted-foreground/80 mt-3">
+              <p className="mt-4 text-[15px] font-medium leading-6 text-foreground/80 md:text-base">
                 {article.listIntro}
               </p>
             )}
 
             {/* List items */}
             {article.list && (
-              <ul className="space-y-2 mt-2">
+              <ul className="mt-2 space-y-2.5">
                 {article.list.map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm md:text-[15px] text-muted-foreground/70">
-                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-primary/40 mt-2" />
-                    <span>{item}</span>
+                  <li key={i} className="flex items-start gap-3 text-[15px] leading-6 text-muted-foreground md:text-base md:leading-7">
+                    <span className="mt-2.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary/60" />
+                    <span className="min-w-0">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -68,8 +68,8 @@ export default function APVArticle({ article }) {
 
             {/* Extra content */}
             {article.extra && (
-              <div className="mt-4 p-4 rounded-xl bg-secondary/50 border border-border/30">
-                <p className="text-sm text-muted-foreground/70 leading-relaxed">
+              <div className="mt-5 p-4 rounded-xl bg-secondary/60 border border-border/50">
+                <p className="text-[15px] leading-6 text-muted-foreground md:text-base md:leading-7">
                   {article.extra}
                 </p>
               </div>
