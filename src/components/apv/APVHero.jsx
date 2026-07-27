@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-export default function APVHero() {
+export default function APVHero({ meta }) {
   const [scrollOpacity, setScrollOpacity] = useState(1);
 
   useEffect(() => {
@@ -55,6 +55,19 @@ export default function APVHero() {
         >
           Algemene Plaatselijke Verordening
         </motion.p>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.65, duration: 0.6 }}
+          className="mt-3 flex items-center justify-center gap-2 text-[10px] font-medium uppercase tracking-wider text-white/35"
+        >
+          <span>Versie {meta.version}</span>
+          <span aria-hidden="true" className="text-primary/40">•</span>
+          <span>
+            Laatst bijgewerkt{" "}
+            <time dateTime={meta.updatedAt}>{meta.updatedAtLabel}</time>
+          </span>
+        </motion.div>
       </div>
     </div>
   );

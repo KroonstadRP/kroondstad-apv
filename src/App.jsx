@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import APVHero from "@/components/apv/APVHero";
 import APVSection from "@/components/apv/APVSection";
 import APVSidebar from "@/components/apv/APVSidebar";
-import { apvData } from "@/components/apv/apvData";
+import { apvData, apvMeta } from "@/components/apv/apvData";
 
 export default function App() {
   const [activeArticle, setActiveArticle] = useState("1.1");
@@ -61,10 +61,10 @@ export default function App() {
         activeSection={activeArticle}
         onSectionClick={scrollToArticle}
       />
-      <APVHero />
+      <APVHero meta={apvMeta} />
 
       <main className="lg:ml-72 xl:ml-80">
-        <div className="mx-auto max-w-4xl px-5 pb-24 pt-80 md:px-8 md:pt-96">
+        <div className="mx-auto max-w-4xl px-5 pb-24 pt-96 md:px-8">
           <div className="space-y-20">
             {apvData.map((section) => (
               <APVSection key={section.id} section={section} />

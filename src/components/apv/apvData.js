@@ -1,3 +1,9 @@
+export const apvMeta = {
+  version: "1.0",
+  updatedAt: "2026-07-27",
+  updatedAtLabel: "27 juli 2026",
+};
+
 export const apvData = [
   {
     id: "artikel-1",
