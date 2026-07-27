@@ -64,7 +64,7 @@ export default function App() {
       <APVHero meta={apvMeta} />
 
       <main className="lg:ml-72 xl:ml-80">
-        <div className="mx-auto max-w-4xl px-5 pb-24 pt-96 md:px-8">
+        <div className="mx-auto max-w-4xl px-5 pb-24 pt-12 md:px-8 md:pt-16">
           <div className="space-y-20">
             {apvData.map((section) => (
               <APVSection key={section.id} section={section} />

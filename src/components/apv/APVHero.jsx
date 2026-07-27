@@ -1,30 +1,14 @@
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
 export default function APVHero({ meta }) {
-  const [scrollOpacity, setScrollOpacity] = useState(1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Fade out the banner over the first 200px of scroll
-      const opacity = Math.max(0, 1 - window.scrollY / 200);
-      setScrollOpacity(opacity);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
-    <div className="pointer-events-none fixed top-0 left-0 right-0 z-30 lg:left-72 xl:left-80">
+    <header className="lg:ml-72 xl:ml-80">
       {/* Banner image */}
-      <div
-        className="relative w-full h-48 md:h-56 overflow-hidden"
-        style={{ opacity: scrollOpacity, transition: "opacity 0.1s linear" }}
-      >
+      <div className="relative aspect-[1024/409] w-full overflow-hidden bg-background">
         <img
           src="https://media.base44.com/images/public/69da87110207331e6fa9d00a/8c2f87bac_EF7CD34B-CB7F-442C-B06A-2C38BF86F158.png"
           alt="Kroonstad Roleplay"
-          className="w-full h-full object-cover object-center brightness-110"
+          className="h-full w-full object-cover object-center brightness-110"
         />
         {/* Bottom fade to blend into page background */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
@@ -33,10 +17,7 @@ export default function APVHero({ meta }) {
       </div>
 
       {/* APV title below image */}
-      <div
-        className="text-center py-4 bg-background"
-        style={{ opacity: scrollOpacity, transform: `translateY(${-20 * (1 - scrollOpacity)}px)`, transition: "opacity 0.1s linear, transform 0.1s linear" }}
-      >
+      <div className="bg-background py-5 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -69,6 +50,6 @@ export default function APVHero({ meta }) {
           </span>
         </motion.div>
       </div>
-    </div>
+    </header>
   );
 }
