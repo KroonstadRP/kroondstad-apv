@@ -1,8 +1,22 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 import SanctionBadge from "./SanctionBadge";
 
 export default function APVArticle({ article }) {
+  const [copied, setCopied] = useState(false);
+
+  const copyArticleLink = async () => {
+    const articleUrl = new URL(
+      `#article-${article.id}`,
+      window.location.href,
+    ).toString();
+
+    await navigator.clipboard.writeText(articleUrl);
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <motion.div
       id={`article-${article.id}`}
@@ -26,14 +40,22 @@ export default function APVArticle({ article }) {
               <h3 className="text-lg md:text-xl font-bold text-foreground tracking-tight leading-tight">
                 {article.title}
               </h3>
-              <a
-                href={`#article-${article.id}`}
-                aria-label={`Deel link naar ${article.title}`}
-                title="Link naar dit artikel"
-                className="mt-0.5 flex-shrink-0 rounded-md p-1.5 text-muted-foreground/30 opacity-70 transition hover:bg-secondary hover:text-primary focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-primary/30 md:opacity-0 md:group-hover:opacity-100"
+              <button
+                type="button"
+                onClick={copyArticleLink}
+                aria-label={`Kopieer link naar ${article.title}`}
+                title={copied ? "Gekopieerd" : "Kopieer link naar dit artikel"}
+                className="mt-0.5 flex flex-shrink-0 cursor-pointer items-center gap-1.5 rounded-md p-1.5 text-muted-foreground/50 transition hover:bg-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
               >
-                <Link aria-hidden="true" className="h-4 w-4" />
-              </a>
+                {copied ? (
+                  <>
+                    <Check aria-hidden="true" className="h-4 w-4 text-emerald-400" />
+                    <span className="text-xs text-emerald-400">Gekopieerd</span>
+                  </>
+                ) : (
+                  <Copy aria-hidden="true" className="h-4 w-4" />
+                )}
+              </button>
             </div>
           </div>
 
