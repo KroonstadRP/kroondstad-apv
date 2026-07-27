@@ -62,22 +62,26 @@ export default function APVArticle({ article }) {
               <button
                 type="button"
                 onClick={copyArticleLink}
-                aria-label={`Kopieer link naar ${article.title}`}
-                title="Kopieer link naar dit artikel"
-                className="flex min-h-9 flex-shrink-0 cursor-pointer items-center gap-1.5 rounded-lg border border-border/60 bg-secondary/50 px-2.5 py-1.5 text-xs font-medium text-muted-foreground transition hover:border-primary/30 hover:bg-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                aria-label={
+                  copyStatus === "copied"
+                    ? `Link naar ${article.title} gekopieerd`
+                    : `Kopieer link naar ${article.title}`
+                }
+                title={
+                  copyStatus === "copied"
+                    ? "Gekopieerd"
+                    : copyStatus === "error"
+                      ? "Kopiëren mislukt"
+                      : "Kopieer link naar dit artikel"
+                }
+                className="flex h-9 w-9 flex-shrink-0 cursor-pointer items-center justify-center rounded-lg border border-border/60 bg-secondary/50 text-muted-foreground transition hover:border-primary/30 hover:bg-secondary hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
               >
                 {copyStatus === "copied" ? (
-                  <>
-                    <Check aria-hidden="true" className="h-4 w-4 text-emerald-400" />
-                    <span className="text-xs text-emerald-400">Gekopieerd</span>
-                  </>
+                  <Check aria-hidden="true" className="h-4 w-4 text-emerald-400" />
                 ) : copyStatus === "error" ? (
-                  <span className="text-xs text-red-400">Kopiëren mislukt</span>
+                  <Copy aria-hidden="true" className="h-4 w-4 text-red-400" />
                 ) : (
-                  <>
-                    <Copy aria-hidden="true" className="h-4 w-4" />
-                    <span>Kopieer link</span>
-                  </>
+                  <Copy aria-hidden="true" className="h-4 w-4" />
                 )}
               </button>
             </div>
