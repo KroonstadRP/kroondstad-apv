@@ -1,16 +1,20 @@
-# Kroonstad APV
+# Kroonstad Roleplay — APV
 
-De APV-website van Kroonstad Roleplay, gebouwd met React en Vite.
+Dit is de officiële Algemene Plaatselijke Verordening van Kroonstad Roleplay.
+In de APV staan de regels, richtlijnen en sanctiecategorieën die binnen de
+server gelden.
 
-## Lokaal starten
+## APV bekijken
 
-```bash
-npm install
-npm run dev
-```
+De actuele APV is te lezen via:
 
-## Publiceren
+**[kroonstadrp.github.io/kroondstad-apv](https://kroonstadrp.github.io/kroondstad-apv/)**
 
-Iedere push naar `main` bouwt en publiceert de website automatisch via GitHub Pages.
-Selecteer in de repository onder **Settings → Pages → Build and deployment**
-de bron **GitHub Actions**.
+## Belangrijk
+
+Iedere speler is zelf verantwoordelijk voor het kennen en naleven van de
+geldende regels. Het staffteam van Kroonstad Roleplay behoudt zich het recht
+voor om situaties afzonderlijk te beoordelen en passende maatregelen te nemen.
+
+Bij vragen of onduidelijkheden kun je contact opnemen met het staffteam van
+Kroonstad Roleplay.
