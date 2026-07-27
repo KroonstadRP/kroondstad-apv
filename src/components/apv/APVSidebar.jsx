@@ -232,7 +232,7 @@ export default function APVSidebar({ sections, activeSection, onSectionClick }) 
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg overflow-hidden flex items-center justify-center border border-primary/20">
               <img
-                src="https://media.base44.com/images/public/69da87110207331e6fa9d00a/69fc3d7f1_9009BC2C-6F99-4F8C-93E0-D4E246445079.png"
+                src={`${import.meta.env.BASE_URL}assets/kroonstad-logo.png`}
                 alt="Kroonstad Roleplay"
                 className="w-full h-full object-cover"
               />

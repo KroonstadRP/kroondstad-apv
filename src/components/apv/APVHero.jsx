@@ -6,7 +6,7 @@ export default function APVHero({ meta }) {
       {/* Banner image */}
       <div className="relative aspect-[1024/409] w-full overflow-hidden bg-background">
         <img
-          src="https://media.base44.com/images/public/69da87110207331e6fa9d00a/8c2f87bac_EF7CD34B-CB7F-442C-B06A-2C38BF86F158.png"
+          src={`${import.meta.env.BASE_URL}assets/kroonstad-banner.png`}
           alt="Kroonstad Roleplay"
           className="h-full w-full object-cover object-center brightness-110"
         />
