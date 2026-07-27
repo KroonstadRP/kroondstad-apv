@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Menu, X, Shield, Users, BookOpen, Car, Skull } from "lucide-react";
+import { ChevronRight, Menu, X, Shield, Users, BookOpen, Car, Skull, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconMap = {
@@ -17,6 +17,31 @@ const iconMap = {
 export default function APVSidebar({ sections, activeSection, onSectionClick }) {
   const [expandedSection, setExpandedSection] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const normalizedQuery = searchQuery.trim().toLocaleLowerCase("nl");
+  const searchResults = normalizedQuery
+    ? sections.flatMap((section) =>
+        section.articles
+          .filter((article) => {
+            const searchableText = [
+              article.id,
+              article.title,
+              article.content,
+              article.listIntro,
+              ...(article.list || []),
+              article.extra,
+              article.sanctie,
+            ]
+              .filter(Boolean)
+              .join(" ")
+              .toLocaleLowerCase("nl");
+
+            return searchableText.includes(normalizedQuery);
+          })
+          .map((article) => ({ ...article, sectionTitle: section.title })),
+      )
+    : [];
 
   const handleSectionToggle = (sectionId) => {
     setExpandedSection(expandedSection === sectionId ? null : sectionId);
@@ -28,13 +53,66 @@ export default function APVSidebar({ sections, activeSection, onSectionClick }) 
   };
 
   const sidebarContent = (
-    <nav className="space-y-1 p-4">
-      <div className="px-3 pb-4 mb-4 border-b border-border/50">
+    <nav className="space-y-1 p-4" aria-label="APV inhoudsopgave">
+      <div className="px-3 pb-4 mb-4 border-b border-border/50 space-y-3">
         <p className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground/50">
           Inhoudsopgave
         </p>
+        <div className="relative">
+          <Search
+            aria-hidden="true"
+            className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground/50"
+          />
+          <input
+            type="search"
+            value={searchQuery}
+            onChange={(event) => setSearchQuery(event.target.value)}
+            placeholder="Zoek in de APV..."
+            aria-label="Zoek in de APV"
+            className="w-full rounded-lg border border-border/60 bg-background/60 py-2.5 pl-9 pr-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground/40 focus:border-primary/50 focus:ring-2 focus:ring-primary/10"
+          />
+        </div>
       </div>
-      {sections.map((section) => {
+
+      {normalizedQuery ? (
+        <div className="space-y-1">
+          <p
+            className="px-3 pb-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/50"
+            aria-live="polite"
+          >
+            {searchResults.length} {searchResults.length === 1 ? "resultaat" : "resultaten"}
+          </p>
+          {searchResults.length > 0 ? (
+            searchResults.map((article) => (
+              <button
+                key={article.id}
+                onClick={() => handleArticleClick(article.id)}
+                className={cn(
+                  "w-full rounded-lg px-3 py-2.5 text-left transition-all duration-200",
+                  "hover:bg-secondary/80",
+                  activeSection === article.id && "bg-primary/5",
+                )}
+              >
+                <span className="block text-[10px] font-semibold uppercase tracking-wider text-primary/60">
+                  Artikel {article.id}
+                </span>
+                <span className="mt-0.5 block text-xs font-medium leading-snug text-muted-foreground">
+                  {article.title.split(" – ")[1]}
+                </span>
+                <span className="mt-1 block truncate text-[10px] text-muted-foreground/40">
+                  {article.sectionTitle.split(" – ")[1]}
+                </span>
+              </button>
+            ))
+          ) : (
+            <div className="mx-3 rounded-lg border border-border/40 bg-secondary/30 px-4 py-5 text-center">
+              <p className="text-xs text-muted-foreground/60">
+                Geen regels gevonden voor “{searchQuery.trim()}”.
+              </p>
+            </div>
+          )}
+        </div>
+      ) : sections.map((section) => {
         const Icon = iconMap[section.icon] || Shield;
         const isExpanded = expandedSection === section.id;
         const sectionNumber = section.id.split("-")[1];
@@ -111,6 +189,8 @@ export default function APVSidebar({ sections, activeSection, onSectionClick }) 
       {/* Mobile toggle */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
+        aria-label={mobileOpen ? "Sluit APV-menu" : "Open APV-menu"}
+        aria-expanded={mobileOpen}
         className="lg:hidden fixed top-4 left-4 z-50 p-2.5 rounded-xl bg-card border border-border shadow-lg"
       >
         {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
