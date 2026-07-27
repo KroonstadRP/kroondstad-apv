@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronRight, Menu, X, Shield, Users, BookOpen, Car, Skull, Search } from "lucide-react";
+import { ChevronRight, Menu, X, Shield, Users, BookOpen, Car, Skull, Search, Copy, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const iconMap = {
@@ -18,6 +18,7 @@ export default function APVSidebar({ sections, activeSection, onSectionClick }) 
   const [expandedSection, setExpandedSection] = useState(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [copiedArticleId, setCopiedArticleId] = useState(null);
 
   const normalizedQuery = searchQuery.trim().toLocaleLowerCase("nl");
   const searchResults = normalizedQuery
@@ -52,6 +53,34 @@ export default function APVSidebar({ sections, activeSection, onSectionClick }) 
     setMobileOpen(false);
   };
 
+  const copySearchResultLink = async (articleId) => {
+    const articleUrl = new URL(
+      `#article-${articleId}`,
+      window.location.href,
+    ).toString();
+
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard API is niet beschikbaar");
+      }
+
+      await navigator.clipboard.writeText(articleUrl);
+    } catch {
+      const textArea = document.createElement("textarea");
+      textArea.value = articleUrl;
+      textArea.setAttribute("readonly", "");
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      document.body.appendChild(textArea);
+      textArea.select();
+      document.execCommand("copy");
+      textArea.remove();
+    }
+
+    setCopiedArticleId(articleId);
+    window.setTimeout(() => setCopiedArticleId(null), 2500);
+  };
+
   const sidebarContent = (
     <nav className="space-y-1 p-4" aria-label="APV inhoudsopgave">
       <div className="px-3 pb-4 mb-4 border-b border-border/50 space-y-3">
@@ -84,25 +113,50 @@ export default function APVSidebar({ sections, activeSection, onSectionClick }) 
           </p>
           {searchResults.length > 0 ? (
             searchResults.map((article) => (
-              <button
+              <div
                 key={article.id}
-                onClick={() => handleArticleClick(article.id)}
                 className={cn(
-                  "w-full rounded-lg px-3 py-2.5 text-left transition-all duration-200",
+                  "flex items-center gap-1 rounded-lg pr-1 transition-all duration-200",
                   "hover:bg-secondary/80",
                   activeSection === article.id && "bg-primary/5",
                 )}
               >
-                <span className="block text-[10px] font-semibold uppercase tracking-wider text-primary/60">
-                  Artikel {article.id}
-                </span>
-                <span className="mt-0.5 block text-xs font-medium leading-snug text-muted-foreground">
-                  {article.title.split(" – ")[1]}
-                </span>
-                <span className="mt-1 block truncate text-[10px] text-muted-foreground/40">
-                  {article.sectionTitle.split(" – ")[1]}
-                </span>
-              </button>
+                <button
+                  onClick={() => handleArticleClick(article.id)}
+                  className="min-w-0 flex-1 rounded-lg px-3 py-2.5 text-left"
+                >
+                  <span className="block text-[10px] font-semibold uppercase tracking-wider text-primary/60">
+                    Artikel {article.id}
+                  </span>
+                  <span className="mt-0.5 block text-xs font-medium leading-snug text-muted-foreground">
+                    {article.title.split(" – ")[1]}
+                  </span>
+                  <span className="mt-1 block truncate text-[10px] text-muted-foreground/40">
+                    {article.sectionTitle.split(" – ")[1]}
+                  </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => copySearchResultLink(article.id)}
+                  aria-label={
+                    copiedArticleId === article.id
+                      ? `Link naar ${article.title} gekopieerd`
+                      : `Kopieer link naar ${article.title}`
+                  }
+                  title={
+                    copiedArticleId === article.id
+                      ? "Gekopieerd"
+                      : "Kopieer link naar dit artikel"
+                  }
+                  className="flex h-9 w-9 flex-shrink-0 cursor-pointer items-center justify-center rounded-lg border border-border/60 bg-background/40 text-muted-foreground transition hover:border-primary/30 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+                >
+                  {copiedArticleId === article.id ? (
+                    <Check aria-hidden="true" className="h-4 w-4 text-emerald-400" />
+                  ) : (
+                    <Copy aria-hidden="true" className="h-4 w-4" />
+                  )}
+                </button>
+              </div>
             ))
           ) : (
             <div className="mx-3 rounded-lg border border-border/40 bg-secondary/30 px-4 py-5 text-center">
