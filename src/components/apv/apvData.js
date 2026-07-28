@@ -1,7 +1,7 @@
 export const apvMeta = {
   version: "1.0",
-  updatedAt: "2026-07-27",
-  updatedAtLabel: "27 juli 2026",
+  updatedAt: "2026-07-28",
+  updatedAtLabel: "28 juli 2026",
 };
 
 export const apvData = [
@@ -197,7 +197,7 @@ export const apvData = [
       {
         id: "2.9",
         title: "Artikel 2.9 – Microfoongebruik",
-        content: "Iedere speler moet beschikken over een werkende en goed verstaanbare microfoon. Binnen Kroonstad Roleplay wordt verwacht dat spelers Nederlands of Engels spreken.",
+        content: "Iedere speler moet beschikken over een werkende en goed verstaanbare microfoon. Binnen Kroonstad Roleplay moet Nederlands worden gesproken.",
         list: [
           "earrapen;",
           "soundpads gebruiken;",
