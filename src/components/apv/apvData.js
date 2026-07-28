@@ -195,22 +195,6 @@ export const apvData = [
         sanctie: "categorie 3 tot 6"
       },
       {
-        id: "2.8",
-        title: "Artikel 2.8 – Kloten op of rond gangterreinen",
-        content: "Zonder geldige reden mag je je niet op of rond een gangterrein begeven of daar provocerend gedrag vertonen.",
-        list: [
-          "zonder reden een terrein opgaan;",
-          "over muren klimmen om een terrein te betreden;",
-          "naast een gangterrein schieten;",
-          "neppe meldingen maken over een terrein;",
-          "bewust scenario's starten op of vlakbij een gangterrein;",
-          "rondhangen of verstoren zonder aanleiding."
-        ],
-        listIntro: "Voorbeelden:",
-        extra: "Officiële gangs kunnen hiernaast ook een strike ontvangen.",
-        sanctie: "categorie 2 tot 4"
-      },
-      {
         id: "2.9",
         title: "Artikel 2.9 – Microfoongebruik",
         content: "Iedere speler moet beschikken over een werkende en goed verstaanbare microfoon. Binnen Kroonstad Roleplay wordt verwacht dat spelers Nederlands of Engels spreken.",
@@ -586,8 +570,20 @@ export const apvData = [
       },
       {
         id: "7.10",
-        title: "Artikel 7.10 – Gangterreinen en identiteit",
-        content: "Campen op of rond gangterreinen zonder geldige reden is verboden. Ook het dragen van gangkleding van een groep waar je geen lid van bent, is niet toegestaan.",
+        legacyIds: ["2.8"],
+        title: "Artikel 7.10 – Kloten op of rond gangterreinen",
+        content: "Zonder geldige reden mag je je niet op of rond een gangterrein begeven of daar provocerend, verstorend of misleidend gedrag vertonen.",
+        list: [
+          "zonder reden een gangterrein betreden;",
+          "over muren klimmen om een terrein te betreden;",
+          "campen, rondhangen of provoceren zonder geldige aanleiding;",
+          "op of naast een gangterrein schieten zonder geldige aanleiding;",
+          "neppe meldingen maken over een gangterrein;",
+          "bewust scenario's starten op of vlak bij een gangterrein;",
+          "gangkleding dragen van een groep waar je geen lid van bent."
+        ],
+        listIntro: "Hieronder valt onder andere:",
+        extra: "Officiële gangs kunnen hiernaast ook een strike ontvangen.",
         sanctie: "categorie 2 tot 6"
       },
       {

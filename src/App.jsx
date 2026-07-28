@@ -29,14 +29,29 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    const articleId = window.location.hash.replace("#article-", "");
-    if (!articleId) return;
+    const requestedArticleId = window.location.hash.replace("#article-", "");
+    if (!requestedArticleId) return;
+
+    const linkedArticle = apvData
+      .flatMap((section) => section.articles)
+      .find(
+        (article) =>
+          article.id === requestedArticleId ||
+          article.legacyIds?.includes(requestedArticleId),
+      );
+    if (!linkedArticle) return;
+
+    const articleId = linkedArticle.id;
 
     const scrollToLinkedArticle = () => {
       document
         .getElementById(`article-${articleId}`)
         ?.scrollIntoView({ block: "start" });
     };
+
+    if (requestedArticleId !== articleId) {
+      window.history.replaceState(null, "", `#article-${articleId}`);
+    }
 
     const frame = window.requestAnimationFrame(scrollToLinkedArticle);
     const settledLayoutTimer = window.setTimeout(scrollToLinkedArticle, 500);
