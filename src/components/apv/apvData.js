@@ -552,8 +552,8 @@ export const apvData = [
       },
       {
         id: "7.6",
-        title: "Artikel 7.6 – Herkenning",
-        content: "Herkenning van personen moet gebaseerd zijn op stem, gezicht of outfit. Voertuigen mogen beperkt worden herkend op kleur of kenteken binnen de daarvoor gestelde tijd.",
+        title: "Artikel 7.6 – Outfit- en voertuigherkenning",
+        content: "Voor gezichts- en stemherkenning geldt Artikel 2.10. Binnen onderwereldscenario's mag herkenning daarnaast worden gebaseerd op een duidelijk waargenomen outfit.\n\nVoertuigen mogen beperkt worden herkend op kleur of kenteken binnen de daarvoor gestelde tijd.",
         sanctie: "categorie 2 tot 6"
       },
       {
