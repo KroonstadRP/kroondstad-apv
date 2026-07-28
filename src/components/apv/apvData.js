@@ -670,14 +670,20 @@ export const apvData = [
     articles: [
       {
         id: "9.1",
-        title: "9.1 – Overzicht Sanctiecategorieën",
-        content: "Sancties binnen Kroonstad Roleplay worden ingedeeld in drie niveaus op basis van de ernst van de overtreding. Elke categorie kent een bijbehorende bandbreedte aan maatregelen die door het staffteam naar eigen inzicht en omstandigheid kunnen worden opgelegd.",
+        title: "9.1 – Overzicht sanctiecategorieën",
+        content: "Sancties binnen Kroonstad Roleplay worden ingedeeld in negen oplopende categorieën. Bij artikelen met een sanctiebereik bepaalt het staffteam binnen dat bereik de passende categorie op basis van de ernst, gevolgen en omstandigheden van de overtreding.",
         list: [
-          "Categorie 1 t/m 3 — Lichte overtredingen: Maatregelen variëren van een formele waarschuwing tot een tijdelijke opschorting van toegang. Bedoeld voor overtredingen die het spelverloop beperkt beïnvloeden.",
-          "Categorie 4 t/m 6 — Middelzware overtredingen: Maatregelen omvatten uitsluitend een tijdelijke opschorting van toegang. Van toepassing bij overtredingen die het spelverloop of de community significant verstoren.",
-          "Categorie 7 t/m 9 — Zware overtredingen: Maatregelen variëren van een langdurige tijdelijke opschorting tot een permanente uitsluiting van toegang. Gereserveerd voor ernstige of herhaaldelijke schendingen van de APV."
+          "Categorie 1 — een waarschuwing.",
+          "Categorie 2 — een taakstraf van 100 taken.",
+          "Categorie 3 — een ban van 1 dag.",
+          "Categorie 4 — een ban van 3 dagen.",
+          "Categorie 5 — een ban van 1 week.",
+          "Categorie 6 — een ban van 2 weken.",
+          "Categorie 7 — een ban van 1 maand.",
+          "Categorie 8 — een accountwipe en een ban van 30 dagen.",
+          "Categorie 9 — een permanente ban en een accountwipe."
         ],
-        extra: "Het staffteam behoudt te allen tijde het recht om af te wijken van de standaard sanctiebandbreedtes, mits dit afdoende wordt gemotiveerd en in lijn is met het beleid van Kroonstad Roleplay."
+        extra: "Het staffteam kan gemotiveerd van de standaardcategorie afwijken wanneer de omstandigheden, gevolgen of eerdere overtredingen daar aanleiding toe geven. Een afwijking blijft passend binnen het beleid van Kroonstad Roleplay."
       },
       {
         id: "9.2",
