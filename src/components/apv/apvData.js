@@ -553,7 +553,15 @@ export const apvData = [
       {
         id: "7.6",
         title: "Artikel 7.6 – Outfit- en voertuigherkenning",
-        content: "Voor gezichts- en stemherkenning geldt Artikel 2.10. Binnen onderwereldscenario's mag herkenning daarnaast worden gebaseerd op een duidelijk waargenomen outfit.\n\nVoertuigen mogen beperkt worden herkend op kleur of kenteken binnen de daarvoor gestelde tijd.",
+        content: "Voor gezichts- en stemherkenning geldt Artikel 2.10. Binnen onderwereldscenario's mag herkenning daarnaast worden gebaseerd op een duidelijk waargenomen outfit, voertuigkleur of kenteken.",
+        list: [
+          "de herkenning blijft geldig binnen dezelfde serverdag;",
+          "een serverdag loopt van 06:00 uur tot 00:00 uur;",
+          "een onverwachte tussentijdse restart wist de herkenning niet;",
+          "na 00:00 uur moet de persoon, outfit of het voertuig opnieuw ingame worden waargenomen."
+        ],
+        listIntro: "Voor outfit- en voertuigherkenning geldt:",
+        extra: "Voor gezichts- en stemherkenning geldt geen vaste tijdslimiet, zolang de herkenning eerder ingame is opgebouwd en nog logisch is.",
         sanctie: "categorie 2 tot 6"
       },
       {
