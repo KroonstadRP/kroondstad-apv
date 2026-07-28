@@ -248,22 +248,6 @@ export const apvData = [
         sanctie: "categorie 4 tot 6"
       },
       {
-        id: "2.13",
-        title: "Artikel 2.13 – Overheid",
-        content: "Van overheidspersoneel wordt altijd professioneel en correct gedrag verwacht. Overheidsmedewerkers blijven gebonden aan de APV en kunnen bij misbruik extra zwaar worden bestraft.",
-        list: [
-          "corruptie;",
-          "geld vragen voor hulp of voorrang;",
-          "criminele handelingen verrichten tijdens dienst;",
-          "betrokken zijn bij illegale activiteiten;",
-          "illegale goederen bezitten na indiensttreding;",
-          "misbruik maken van bevoegdheden."
-        ],
-        listIntro: "Hieronder vallen onder andere:",
-        extra: "Regels rondom huiszoekingen, clearshots, bodycams en preventief fouilleren gelden alleen binnen de daarvoor bestemde kaders.",
-        sanctie: "categorie 1 tot 6"
-      },
-      {
         id: "2.14",
         title: "Artikel 2.14 – Jobhoppen",
         content: "Om misbruik van functies en rollen te voorkomen geldt een cooldown van 3 dagen bij het wisselen van baan of rol.",
@@ -615,8 +599,10 @@ export const apvData = [
     articles: [
       {
         id: "8.1",
+        legacyIds: ["2.13"],
         title: "Artikel 8.1 – Algemene norm",
-        content: "Overheidspersoneel moet zich altijd professioneel, geloofwaardig en passend bij de functie gedragen.",
+        content: "Overheidspersoneel moet zich altijd professioneel, geloofwaardig en passend bij de functie gedragen. Overheidsmedewerkers blijven volledig gebonden aan de APV en kunnen bij misbruik van hun functie aanvullend worden bestraft.",
+        extra: "De overige artikelen in dit hoofdstuk bevatten de specifieke regels voor onder meer corruptie, illegale goederen, huiszoekingen, clearshots, bodycams en preventief fouilleren.",
         sanctie: "categorie 1 tot 6"
       },
       {
