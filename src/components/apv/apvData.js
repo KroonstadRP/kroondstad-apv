@@ -201,16 +201,22 @@ export const apvData = [
         list: [
           "earrapen;",
           "soundpads gebruiken;",
-          "onrealistische stemvervormers gebruiken;",
-          "stemvervorming zonder passende roleplay-reden."
+          "stemvervorming gebruiken zonder passende roleplay-reden;",
+          "onrealistische of niet-menselijke stemvervorming gebruiken, zoals robot- of kinderstemmen."
         ],
         listIntro: "Verboden is onder andere:",
+        extra: "Stemvervorming mag tijdens criminele roleplay worden gebruikt, zolang deze realistisch en menselijk blijft.",
         sanctie: "categorie 2 tot 4"
       },
       {
         id: "2.10",
         title: "Artikel 2.10 – Gezichts- en stemherkenning",
-        content: "Spelers mogen iemand aan het gezicht herkennen, tenzij dat gezicht bedekt is. Iemand met een masker mag dus niet op uiterlijk worden herkend.\n\nStemherkenning is alleen toegestaan wanneer:\n• de stem eerder ingame is gehoord;\n• de stem niet bewust vervormd of anders gemaakt wordt.\n\nStemvervorming mag tijdens criminele roleplay, zolang deze realistisch en menselijk blijft. Robotstemmen, kinderstemmen of andere onrealistische vervormingen zijn niet toegestaan.",
+        content: "Spelers mogen iemand aan het gezicht herkennen, tenzij dat gezicht bedekt is. Iemand met een masker mag dus niet op uiterlijk worden herkend.",
+        list: [
+          "de stem eerder ingame is gehoord;",
+          "de stem niet bewust vervormd of anders gemaakt wordt."
+        ],
+        listIntro: "Stemherkenning is alleen toegestaan wanneer:",
         sanctie: "categorie 2 tot 4"
       },
       {
