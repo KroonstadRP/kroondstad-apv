@@ -40,10 +40,12 @@ export default function App() {
 
     const frame = window.requestAnimationFrame(scrollToLinkedArticle);
     const settledLayoutTimer = window.setTimeout(scrollToLinkedArticle, 500);
+    const finalLayoutTimer = window.setTimeout(scrollToLinkedArticle, 1500);
 
     return () => {
       window.cancelAnimationFrame(frame);
       window.clearTimeout(settledLayoutTimer);
+      window.clearTimeout(finalLayoutTimer);
     };
   }, []);
 

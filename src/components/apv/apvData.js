@@ -62,7 +62,7 @@ export const apvData = [
       {
         id: "1.6",
         title: "Artikel 1.6 – Doxing",
-        content: "Het verspreiden, lekken, dreigen met delen of gebruiken van privégegevens van anderen is streng verboden. Dit geldt zowel binnen de Discord van Kroonstad Roleplay als daarbuiten.\n\nHet moet gaan om persoonlijke informatie die niet openbaar door de betreffende persoon zelf is gedeeld. Bij chantage, bedreiging of verspreiding van zulke informatie volgt een zware bestraffing.\n\nScreenshots alleen zijn niet voldoende; handhaving gebeurt uitsluitend op basis van clipbewijs of vergelijkbaar overtuigend materiaal.",
+        content: "Het verspreiden, lekken, dreigen met delen of gebruiken van privégegevens van anderen is streng verboden. Dit geldt zowel binnen de Discord van Kroonstad Roleplay als daarbuiten.\n\nHet moet gaan om persoonlijke informatie die niet openbaar door de betreffende persoon zelf is gedeeld. Bij chantage, bedreiging of verspreiding van zulke informatie volgt een zware bestraffing.\n\nBewijs wordt beoordeeld volgens Artikel 5.8 – Bewijs en opnames.",
         sanctie: "categorie 7 tot 9"
       },
       {
@@ -407,7 +407,7 @@ export const apvData = [
       {
         id: "5.2",
         title: "Artikel 5.2 – Toxic en haatdragend gedrag",
-        content: "Toxic gedrag, intimidatie en bedreigingen zijn niet toegestaan, zowel ingame als in Discord of andere omgevingen die aan de community gelinkt zijn.\n\nHandhaving gebeurt op basis van clipbewijs of livestreams, niet uitsluitend op screenshots.",
+        content: "Toxic gedrag, intimidatie en bedreigingen zijn niet toegestaan, zowel ingame als in Discord of andere omgevingen die aan de community gelinkt zijn.\n\nBewijs wordt beoordeeld volgens Artikel 5.8 – Bewijs en opnames.",
         sanctie: "categorie 2 tot 4"
       },
       {
@@ -436,7 +436,7 @@ export const apvData = [
       {
         id: "5.6",
         title: "Artikel 5.6 – Refunds",
-        content: "Refunds worden alleen behandeld wanneer het bewijs volledig en duidelijk is.",
+        content: "Refunds worden alleen behandeld wanneer het bewijs volledig en duidelijk is. Naast de algemene bewijsregels uit Artikel 5.8 gelden voor refunds de onderstaande aanvullende vereisten.",
         list: [
           "zichtbare ID's;",
           "eigen perspectief;",
@@ -454,6 +454,22 @@ export const apvData = [
         title: "Artikel 5.7 – Invallen op overheids-HB",
         content: "Het is verboden om zonder toestemming een inval te doen op het hoofdbureau van politie of defensie. Alleen met uitdrukkelijke goedkeuring van beheer kan hiervan worden afgeweken.",
         sanctie: "categorie 2 tot 4"
+      },
+      {
+        id: "5.8",
+        title: "Artikel 5.8 – Bewijs en opnames",
+        content: "Bewijs dat wordt gebruikt voor een report, ticket, refundverzoek of onderzoek door staff moet betrouwbaar, volledig en controleerbaar zijn. Staff bepaalt uiteindelijk of het aangeleverde materiaal voldoende is om een overtreding of verlies vast te stellen.",
+        list: [
+          "het eigen perspectief van de melder tonen;",
+          "voldoende aanloop, het relevante moment en de afloop bevatten;",
+          "duidelijk beeld en verstaanbaar geluid hebben;",
+          "betrokken spelers herkenbaar maken, bijvoorbeeld door zichtbare ID's;",
+          "onbewerkt zijn en geen misleidende onderbrekingen bevatten;",
+          "via een werkende en voor staff toegankelijke link worden aangeleverd;",
+          "op verzoek beschikbaar blijven zolang het onderzoek loopt."
+        ],
+        listIntro: "Bewijs moet waar relevant:",
+        extra: "Screenshots kunnen als ondersteunend bewijs worden gebruikt. Wanneer timing, context, uitspraken of het verloop van een situatie van belang zijn, is alleen een screenshot niet voldoende en kan clipbewijs of vergelijkbaar materiaal worden vereist.\n\nHet manipuleren, selectief vervormen of bewust achterhouden van relevant bewijs valt onder ticket- en refundfraude. Privégegevens en gevoelig bewijsmateriaal mogen uitsluitend via de daarvoor bestemde staffkanalen worden gedeeld."
       }
     ]
   },
