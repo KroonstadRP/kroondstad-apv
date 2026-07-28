@@ -220,34 +220,6 @@ export const apvData = [
         sanctie: "categorie 2 tot 4"
       },
       {
-        id: "2.11",
-        title: "Artikel 2.11 – Gangs",
-        content: "Een officiële gang mag uit maximaal 25 leden bestaan.",
-        list: [
-          "samenwerken met buitenstaanders is niet toegestaan zonder goedkeuring;",
-          "handel met burgers of andere groepen blijft wel toegestaan;",
-          "scenario's met meerdere groeperingen moeten vooraf zijn goedgekeurd;",
-          "gangwars mogen alleen plaatsvinden na afstemming en goedkeuring van de onderwereldcoördinatoren."
-        ],
-        listIntro: "Daarnaast geldt:",
-        sanctie: "ter beoordeling van de onderwereldcoördinatoren"
-      },
-      {
-        id: "2.12",
-        title: "Artikel 2.12 – Eiland",
-        content: "Op het eiland gelden afwijkende regels vanwege het verhoogde risico van criminele roleplay.",
-        list: [
-          "onderwereldgerelateerde goederen mogen worden geript zonder dat ze eerst zichtbaar zijn geweest;",
-          "wapens mogen van elkaar worden geript;",
-          "na een rip mag dodelijk geweld volgen;",
-          "mensen zonder wapens moeten eerst worden weggestuurd, tenzij zij bewust blijven;",
-          "aanwezigheid op het eiland is op eigen risico;",
-          "uit de lucht neergeschoten worden kan daar direct gebeuren."
-        ],
-        listIntro: "Daar geldt onder andere:",
-        sanctie: "categorie 4 tot 6"
-      },
-      {
         id: "2.14",
         title: "Artikel 2.14 – Jobhoppen",
         content: "Om misbruik van functies en rollen te voorkomen geldt een cooldown van 3 dagen bij het wisselen van baan of rol.",
@@ -589,6 +561,36 @@ export const apvData = [
         title: "Artikel 7.11 – Hit & Run bij overvallen",
         content: "Bij een overval moet de roleplay met de politie worden aangegaan. Een hit-and-run zonder correcte opzet of zonder geldige onderhandeling is niet toegestaan.",
         sanctie: "categorie 2 tot 6"
+      },
+      {
+        id: "7.12",
+        legacyIds: ["2.11"],
+        title: "Artikel 7.12 – Gangs",
+        content: "Een officiële gang mag uit maximaal 25 leden bestaan.",
+        list: [
+          "samenwerken met buitenstaanders is niet toegestaan zonder goedkeuring;",
+          "handel met burgers of andere groepen blijft wel toegestaan;",
+          "scenario's met meerdere groeperingen moeten vooraf zijn goedgekeurd;",
+          "gangwars mogen alleen plaatsvinden na afstemming en goedkeuring van de onderwereldcoördinatoren."
+        ],
+        listIntro: "Daarnaast geldt:",
+        sanctie: "ter beoordeling van de onderwereldcoördinatoren"
+      },
+      {
+        id: "7.13",
+        legacyIds: ["2.12"],
+        title: "Artikel 7.13 – Eiland",
+        content: "Op het eiland gelden afwijkende regels vanwege het verhoogde risico van criminele roleplay.",
+        list: [
+          "onderwereldgerelateerde goederen mogen worden geript zonder dat ze eerst zichtbaar zijn geweest;",
+          "wapens mogen van elkaar worden geript;",
+          "na een rip mag dodelijk geweld volgen;",
+          "mensen zonder wapens moeten eerst worden weggestuurd, tenzij zij bewust blijven;",
+          "aanwezigheid op het eiland is op eigen risico;",
+          "uit de lucht neergeschoten worden kan daar direct gebeuren."
+        ],
+        listIntro: "Daar geldt onder andere:",
+        sanctie: "categorie 4 tot 6"
       }
     ]
   },
